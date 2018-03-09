@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" ng-controller="mainCtrl">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="css/ionic.min.css" />
+	<link rel="stylesheet" href="css/media-100.css" />
+	<script src="js/ionic.bundle.min.js"></script>
+	<style>
+		*{margin: 0;padding: 0;
+		box-sizing: border-box;
+		}
+		body{
+			font-size: .16rem;
+		}
+		ul,li{
+			list-style: none;
+		}
+		ul{
+			width: 100%;
+			text-align: center;
+		}
+		li{
+			width: 20%;
+			float: left;
+		}
+		.bao{
+			background: url(image/images.jpg);
+			background-size: 100% 100%;
+			
+			border: 0 solid;
+			
+		}
+		img{
+			width: 100%;
+		}
+	
+		.bar-footer{
+			border-top: 1px solid #ccc;
+		
+		}
+		
+		.bar-footer{
+			background: url(image/footer.jpg);
+			background-size: 100% 100%;
+
+		}
+		#scrollx{
+			width: 200%;
+		}
+		#scrollx div{
+			width: 8%;
+			float: left;
+			margin-left: 1.2%;
+			margin-right: 1.2%;
+			border: 0px solid;
+		}
+		
+		#scrollx .w2{
+			width: 5% !important;
+			border-bottom: 3px solid #833032 ;
+		}
+		.w3{
+			width: 7% !important;
+		}
+		video{
+			width: 100%;
+			height: 3rem;
+		}
+		.hetao{
+			width: 100%;
+			height: 3.5rem;
+			background: url(image/c.jpg);
+			background-size: 100% 100%;
+		}
+		.vid{
+			height: 4rem;
+			width: 100%;
+			background: #f3f7f8;
+		}
+		.vid .bg{
+		width: 100%;
+		height: .8rem;
+		background: url(image/d.jpg);
+		background-size: 100% .8rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="bar-header bar bao"></div>
+	 
+	  <ion-content class="has-header has-footer">  
+	  <ion-slide-box auto-play="true" does-continue="true" slide-interval=2000>  
+	      <ion-slide>  
+	        <div class="box banner .first"><img src="image/b.jpg" /> </div>  
+	      </ion-slide>  
+	      <ion-slide>  
+	        <div class="box banner"><img src="image/b.jpg" /></div>  
+	      </ion-slide>  
+	      <ion-slide on-slide-changed="slideHasChanged(index)">  
+	        <div class="box banner"><img src="image/b.jpg" /></div>  
+	      </ion-slide>  
+	    </ion-slide-box>  
+	    
+	    <ion-scroll zooming="true" direction="x" style="width: 100%; height: 0.64rem ;overflow: hidden;line-height: 0.6rem;text-align: center;font-size: .22rem;color: #545d70;" scrollbar-x="false" scrollbar-y="false">
+   		 <div id="scrollx">
+   		 	<div class="w2">推荐</div>
+   		 	<div class="w3">晒宝台</div>
+   		 	<div class="w3">鉴宝台</div>
+   		 	<div>精彩直播</div>
+   		 	<div>好物拍卖</div>
+   		 	<div>推荐</div>
+   		 	<div>推荐</div>
+   		 	<div>推荐</div>
+   		 	<div>推荐</div>
+   		 	
+   		 </div>
+   		
+		</ion-scroll>
+		<div class="hetao"></div>
+		<div class="vid">
+			<div class="bg"></div>
+			<video src="image/030008010059E0D28ADA9A4AB2428FD1A9B3B8-BDA2-40D1-F356-4F14B645A999.mp4"
+				controls="controls"
+				>
+			
+			</video>
+		</div>
+			
+	 </ion-content > 
+	<div class="bar bar-footer">
+		
+	</div>
+	<script>
+		angular.module("myApp",["ionic"])
+		.controller("mainCtrl",["$scope",function($scope){
+			var _dv = document.getElementById("scrollx");
+			var _dvs = _dv.getElementsByTagName("div")
+			for(var i =0 ;i<_dvs.length;i++){
+			
+				_dvs[i].onclick = function(){
+					for(var j =0;j<_dvs.length;j++){
+						if(_dvs[j] == this){
+							this.style.borderBottom= "3px solid #833032"
+						}else{
+							_dvs[j].style.borderBottom= "0px solid "
+						}
+					}
+				}
+			}
+			
+		}])
+	</script>
+</body>
+</html>
